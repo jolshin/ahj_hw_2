@@ -10,9 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/jolshin/ahj_hw_2.git"
   },
-  "license": "ISC",
-  "author": "",
-  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "test": "jest --coverage",
