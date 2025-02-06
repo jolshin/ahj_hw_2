@@ -1,3 +1,9 @@
 body {
     color: #999;
 }
+
+#wrapper {
+    display: grid;
+  }
+
+    

@@ -1,11 +1,8 @@
 // TODO: write code here
 
-// comment this to pass build
-const unusedVariable = "variable";
+import Goblin from "./Goblin";
 
-// for demonstration purpose only
-export default function demo(value) {
-  return `Demo: ${value}`;
-}
+Goblin.size = 4;
+Goblin.createField()
 
-console.log("app.js included");
+setInterval(() => Goblin.refreshGrid(), 1000);
