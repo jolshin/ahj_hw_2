@@ -4,44 +4,52 @@ export default class Goblin {
   static {
     this.size = 4;
     this.width = window.innerWidth - 200;
+    this.position = 0;
   }
 
   static random() {
-    return Math.floor(Math.random() * (this.size**2))
+    return Math.floor(Math.random() * (this.size**2));
   }
 
   static addStyle() {
     return { 
       'grid-template-columns': `repeat( ${this.size}, ${this.width/this.size}px)`,
-      'grid-auto-rows': `${this.width/this.size}px` 
+      'grid-auto-rows': `${this.width/this.size}px`
     }
   }
 
   static createField() {
     const div = document.createElement('div');
-    div.id = 'wrapper'
+    div.id = 'wrapper';
 
     Object.assign(div.style,this.addStyle());
 
     const imgEl = document.createElement('img');
-    imgEl.id = 'goblin'
-    imgEl.src = `${goblinImg}`
+    imgEl.id = 'goblin';
+    imgEl.src = `${goblinImg}`;
     
     for (let i=0; i < this.size**2; i++) {
       const innerDiv = document.createElement('div');
-      div.appendChild(innerDiv)
+      div.appendChild(innerDiv);
     }
 
     document.body.appendChild(div);
-    document.querySelector('#wrapper').children[this.random()].appendChild(imgEl)
+    document.querySelector('#wrapper').children[this.random()].appendChild(imgEl);
 
 
   }
 
   static refreshGrid() {
-    const imgEl = document.getElementById('goblin')
-    console.log(imgEl)
-    document.querySelector('#wrapper').children[this.random()].appendChild(imgEl)
+    let position = 0;
+
+    do {
+      position = this.random();
+    } while (this.position === position)
+
+    this.position = position;
+
+    const imgEl = document.getElementById('goblin');
+    document.querySelector('#wrapper').children[this.position].appendChild(imgEl)
     
   }
 }
